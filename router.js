@@ -1,7 +1,7 @@
-function route(handle, pathName,response){
+function route(handle, pathName,response, reviewData){
     console.log("Routing request for "+pathName);
     if(typeof handle[pathName] === 'function'){
-        handle[pathName](response);
+        handle[pathName](response, reviewData);
     } else {
         console.log("No such Handler " +pathName);
         response.writeHead(404, {'Content-Type':'text/html'});
